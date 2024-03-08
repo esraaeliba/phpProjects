@@ -54,6 +54,11 @@ $conn->disconnect();
 
 </html>
 <?php if (!empty($items)) { ?>
+    <div style="position: relative;
+    top: 200px;
+    left: 450px;
+    border: 1px solid black;
+    width: 751px;">
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <!-- value -->
         <input type="text" placeholder="Search.." name="search">
@@ -86,6 +91,7 @@ $conn->disconnect();
 
     <a style='margin-right:10px' href="<?php echo "?click=prev&page=" . $page ?>">Prev</a>
     <a href="<?php echo "?click=next&page=" . $page ?>">Next</a>
+    </div>
 <?php } else {
     echo "product not found";
 } ?>

@@ -1,14 +1,12 @@
 {
-    "autoload": {
-        "files": [
-            "config.php"
-        ],
-        "classmap": [
-            "Models"
-        ]
+
+    "autoload":{
+   "files": ["config.php"],
+
+    "classmap":["Model"]
     },
     "require": {
-        "illuminate/database": "^5.5"
+        "illuminate/database": "^10.47"
     },
     "config": {
         "allow-plugins": {

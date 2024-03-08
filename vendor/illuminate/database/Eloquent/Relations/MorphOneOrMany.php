@@ -2,8 +2,8 @@
 
 namespace Illuminate\Database\Eloquent\Relations;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 
 abstract class MorphOneOrMany extends HasOneOrMany
 {
@@ -48,9 +48,9 @@ abstract class MorphOneOrMany extends HasOneOrMany
     public function addConstraints()
     {
         if (static::$constraints) {
-            parent::addConstraints();
+            $this->getRelationQuery()->where($this->morphType, $this->morphClass);
 
-            $this->query->where($this->morphType, $this->morphClass);
+            parent::addConstraints();
         }
     }
 
@@ -64,20 +64,21 @@ abstract class MorphOneOrMany extends HasOneOrMany
     {
         parent::addEagerConstraints($models);
 
-        $this->query->where($this->morphType, $this->morphClass);
+        $this->getRelationQuery()->where($this->morphType, $this->morphClass);
     }
 
     /**
-     * Attach a model instance to the parent model.
+     * Create a new instance of the related model. Allow mass-assignment.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @param  array  $attributes
      * @return \Illuminate\Database\Eloquent\Model
      */
-    public function save(Model $model)
+    public function forceCreate(array $attributes = [])
     {
-        $model->setAttribute($this->getMorphType(), $this->morphClass);
+        $attributes[$this->getForeignKeyName()] = $this->getParentKey();
+        $attributes[$this->getMorphType()] = $this->morphClass;
 
-        return parent::save($model);
+        return $this->related->forceCreate($attributes);
     }
 
     /**
@@ -104,7 +105,7 @@ abstract class MorphOneOrMany extends HasOneOrMany
     public function getRelationExistenceQuery(Builder $query, Builder $parentQuery, $columns = ['*'])
     {
         return parent::getRelationExistenceQuery($query, $parentQuery, $columns)->where(
-            $this->morphType, $this->morphClass
+            $query->qualifyColumn($this->getMorphType()), $this->morphClass
         );
     }
 

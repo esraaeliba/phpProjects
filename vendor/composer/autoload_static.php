@@ -21,6 +21,10 @@ class ComposerStaticInit6589bb8feb7f176158a4fe8b6a787a3a
         array (
             'voku\\' => 5,
         ),
+        'W' => 
+        array (
+            'Wingu\\OctopusCore\\Reflection\\' => 29,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Php80\\' => 23,
@@ -33,6 +37,7 @@ class ComposerStaticInit6589bb8feb7f176158a4fe8b6a787a3a
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Container\\' => 14,
             'Psr\\Clock\\' => 10,
+            'PHP2WSDL\\' => 9,
         ),
         'I' => 
         array (
@@ -54,12 +59,20 @@ class ComposerStaticInit6589bb8feb7f176158a4fe8b6a787a3a
         array (
             'Brick\\Math\\' => 11,
         ),
+        'A' => 
+        array (
+            'App\\' => 4,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'voku\\' => 
         array (
             0 => __DIR__ . '/..' . '/voku/portable-ascii/src/voku',
+        ),
+        'Wingu\\OctopusCore\\Reflection\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/wingu/reflection/src',
         ),
         'Symfony\\Polyfill\\Php80\\' => 
         array (
@@ -89,11 +102,15 @@ class ComposerStaticInit6589bb8feb7f176158a4fe8b6a787a3a
         array (
             0 => __DIR__ . '/..' . '/psr/clock/src',
         ),
+        'PHP2WSDL\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php2wsdl/php2wsdl/src',
+        ),
         'Illuminate\\Support\\' => 
         array (
-            0 => __DIR__ . '/..' . '/illuminate/macroable',
+            0 => __DIR__ . '/..' . '/illuminate/collections',
             1 => __DIR__ . '/..' . '/illuminate/conditionable',
-            2 => __DIR__ . '/..' . '/illuminate/collections',
+            2 => __DIR__ . '/..' . '/illuminate/macroable',
             3 => __DIR__ . '/..' . '/illuminate/support',
         ),
         'Illuminate\\Database\\' => 
@@ -123,6 +140,10 @@ class ComposerStaticInit6589bb8feb7f176158a4fe8b6a787a3a
         'Brick\\Math\\' => 
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
+        ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/App',
         ),
     );
 

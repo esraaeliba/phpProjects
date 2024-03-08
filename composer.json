@@ -1,16 +1,22 @@
 {
-
-    "autoload":{
-   "files": ["config.php"],
-
-    "classmap":["Model"]
-    },
+    
     "require": {
+        "php2wsdl/php2wsdl": "^0.7.0",
         "illuminate/database": "^10.47"
     },
-    "config": {
-        "allow-plugins": {
-            "kylekatarnls/update-helper": true
-        }
-    }
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/"
+        },
+    
+   
+        "files": ["config.php"],
+     
+         "classmap":["Model"]
+         },
+         "config": {
+             "allow-plugins": {
+                 "kylekatarnls/update-helper": true
+             }
+         }
 }
